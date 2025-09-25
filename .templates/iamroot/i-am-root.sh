@@ -6,6 +6,7 @@ echo "Current directory: $SCRIPT_DIR"
 CERTIFICATE_PWD=$MyVar
 unset MyVar
 echo "Password used: $CERTIFICATE_PWD"
+pushd $SCRIPT_DIR
 
 cd $SCRIPT_DIR
 rm -fr crl newcerts
@@ -25,6 +26,6 @@ cp .templates/iamroot/gen-self-sign-cert.sh .
 echo "Complete generating the CA key as ca.key.pem"
 echo "Please update the openssl.cnf [req_distinguished_name] section for the certificate sign details"
 echo "And then....execute gen-self-sign-cert.sh for generation"
-rm -- "$0"
+rm i-am-*.sh
 
-
+popd

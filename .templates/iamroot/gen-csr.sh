@@ -2,17 +2,16 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "$0" )" &> /dev/null && pwd )
 SCRIPT_DIR=$(realpath "$SCRIPT_DIR")
 
 echo "Current directory: $SCRIPT_DIR"
+pushd $SCRIPT_DIR
 
 if [[ -z "$CERTIFICATE_PWD" ]]; then
   echo "Error: CERTIFICATE_PWD is not set. Exiting."
   exit 1 # Exit with a non-zero status to indicate an error
 fi
-pushd $SCRIPT_DIR
-openssl req -config openssl.cnf \
-      -key ca.key.pem \
-      -passin pass:"$CERTIFICATE_PWD" \
-      -new -x509 -days 7300 -sha256 -extensions v3_ca \
-      -out ca.cert.pem
-popd
 
+openssl req -config openssl.cnf -new -sha256 \
+      -passin pass:"$CERTIFICATE_PWD" \
+      -key ca.key.pem \
+      -out ca.csr.pem
+popd
 rm -- "$0"
