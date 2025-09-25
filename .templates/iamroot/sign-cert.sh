@@ -3,6 +3,7 @@ SCRIPT_DIR=$(realpath "$SCRIPT_DIR")
 
 csr_file=$1
 signed_file="cert_$(cat serial).cert.pem"
+signed_chain_file="cert_$(cat serial).cert.chain.pem"
 
 echo "Current directory: $SCRIPT_DIR"
 pushd $SCRIPT_DIR
@@ -18,5 +19,6 @@ openssl ca -config openssl.cnf -extensions v3_intermediate_ca -batch \
       -in $csr_file \
       -out $signed_file
 
+cat ca.cert.pem $signed_file  > $signed_chain_file
 popd
 #rm -- "$0"
