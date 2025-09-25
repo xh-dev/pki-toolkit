@@ -1,0 +1,1 @@
+cp -f .templates/intermediate-config.txt openssl.cnf
