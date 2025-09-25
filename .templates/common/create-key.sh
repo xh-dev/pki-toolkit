@@ -1,4 +1,5 @@
 SCRIPT_DIR=$( cd -- "$( dirname -- "$0" )" &> /dev/null && pwd )
+SCRIPT_DIR=$(realpath "$SCRIPT_DIR/..")
 pushd $SCRIPT_DIR
 key_name=$1
 echo "generating key with password[$CERTIFICATE_PWD] to path $SCRIPT_DIR/$key_name"
