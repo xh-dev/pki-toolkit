@@ -13,7 +13,7 @@ if [[ -z "$CERTIFICATE_PWD" ]]; then
   exit 1 # Exit with a non-zero status to indicate an error
 fi
 
-openssl ca -config openssl.cnf -extensions client_cert -batch \
+openssl ca -config openssl.cnf -extensions usr_cert -batch \
       -days 365 -notext -md sha256 \
       -passin pass:"$CERTIFICATE_PWD" \
       -in $csr_file \

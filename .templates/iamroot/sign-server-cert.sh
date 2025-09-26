@@ -14,7 +14,7 @@ if [[ -z "$CERTIFICATE_PWD" ]]; then
 fi
 
 openssl ca -config openssl.cnf -extensions server_cert -batch \
-      -days 3650 -notext -md sha256 \
+      -days 365 -notext -md sha256 \
       -passin pass:"$CERTIFICATE_PWD" \
       -in $csr_file \
       -out $signed_file
