@@ -22,7 +22,7 @@ cp -fr .templates/common .
 ./common/create-key.sh ca.key.pem
 
 cp .templates/iamroot/gen-self-sign-cert.sh .
-cp .templates/iamroot/sign-cert.sh .
+cp .templates/iamroot/sign-*-cert.sh .
 cp .templates/iamroot/get-root-config.sh common/get-config.sh
 ./common/get-config.sh
 
