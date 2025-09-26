@@ -19,6 +19,6 @@ openssl ca -config openssl.cnf -extensions v3_intermediate_ca -batch \
       -in $csr_file \
       -out $signed_file
 
-cat ca.cert.pem $signed_file  > $signed_chain_file
+cat ca.cert.chain.pem $signed_file  > $signed_chain_file
 popd
 #rm -- "$0"
