@@ -6,5 +6,3 @@ function get_value(){
 	echo $cert_data | grep -Po "$v"
 }
 echo "{\"C\":\"$(get_value '(?<=C = )(.*)(?=, ST)')\",\"ST\":\"$(get_value '(?<=ST = )(.*)(?=, L)')\", \"L\":\"$(get_value '(?<=L = )(.*)(?=, O )')\",\"O\":\"$(get_value '(?<=O = )(.*)(?=, OU)')\",\"OU\":\"$(get_value '(?<=OU = )(.*)(?=, CN)')\",\"CN\":\"$(get_value '(?<=CN = )(.*)(?=, emailAddress)')\",\"email\":\"$(get_value '(?<=emailAddress = )(.*)$')\" }" | jq
-
-popd
