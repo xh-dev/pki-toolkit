@@ -23,7 +23,8 @@ cp -fr .templates/common .
 
 cp .templates/iamroot/gen-self-sign-cert.sh .
 cp .templates/iamroot/sign-cert.sh .
-cp .templates/iamroot/get-root-config.sh get-config.sh
+cp .templates/iamroot/get-root-config.sh common/get-config.sh
+./common/get-config.sh
 
 echo "Complete generating the CA key as ca.key.pem"
 echo "Please update the openssl.cnf [req_distinguished_name] section for the certificate sign details"

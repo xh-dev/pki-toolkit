@@ -15,4 +15,5 @@ openssl req -config openssl.cnf \
       -out ca.cert.pem
 popd
 
+rm openssl.cnf
 rm -- "$0"
