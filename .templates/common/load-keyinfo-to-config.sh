@@ -16,4 +16,4 @@ sed -i "s|^\(L[ ]\+= \+\).*$|\1$L|g" $config_file
 sed -i "s|^\(O[ ]\+= \+\).*$|\1$O|g" $config_file
 sed -i "s|^\(OU[ ]\+= \+\).*$|\1$OU|g" $config_file
 sed -i "s|^\(CN[ ]\+= \+\).*$|\1$CN|g" $config_file
-sed -i "s|^\(emailAddress[ ]\+= \+\).*$|\1$email|g" $config_file
+sed -i "s|^\(emailAddress[ ]\+= \+\).*@.*$|\1$email|g" $config_file
