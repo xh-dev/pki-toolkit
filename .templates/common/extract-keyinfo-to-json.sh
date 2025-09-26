@@ -1,7 +1,3 @@
-SCRIPT_DIR=$( cd -- "$( dirname -- "$0" )" &> /dev/null && pwd )
-SCRIPT_DIR=$(realpath "$SCRIPT_DIR/..")
-pushd $SCRIPT_DIR
-
 cert_file=$1
 
 cert_data="$(openssl x509 -noout -text -in $cert_file|grep Subject:)"
